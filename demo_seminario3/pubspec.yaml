@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  # Afegim dependències per tal de poder accedir a internet i tenir un tipus de lletra diferent
   font_awesome_flutter: ^8.7.0
   http: ^0.12.0+4
 

@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
@@ -71,13 +71,13 @@ void initState () {
                   
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: "Enter a city",
+                    hintText: "Introdueix una ciutat",
                     
                     suffixIcon: IconButton(
                       //onPressed: controller.clear,
                       onPressed: (){
                         setState((){ this.name =controller.text;});
-                        getWeather();
+                        getWeather(); //llamamos a la funcion para que nos de el tiempo de esa ciudad
                       },
                       icon: Icon(Icons.send),
                     ),
@@ -89,7 +89,7 @@ void initState () {
                   padding: EdgeInsets.only(bottom: 10.0),
                   child: Text(
 
-                    "Currently in " + name.toString(),
+                    "Actualment a " + name.toString(),
                     
                     style: TextStyle(
                       color: Colors.white,
@@ -99,6 +99,7 @@ void initState () {
                   ),
                   
                 ),
+                
                 Text(
                   temp != null ? temp.toString() + "\u00B0"+"C" : "Loading",
                   style: TextStyle(
@@ -123,6 +124,7 @@ void initState () {
               ],
             ),
           ),
+          
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(20.0),
@@ -141,12 +143,12 @@ void initState () {
                   ListTile(
                     leading: FaIcon(FontAwesomeIcons.sun),
                     title: Text("Humidity"),
-                    trailing: Text(humidity != null ? humidity.toString() : "Loading"),
+                    trailing: Text(humidity != null ? humidity.toString() + "%": "Loading"),
                   ),
                   ListTile(
                     leading: FaIcon(FontAwesomeIcons.wind),
                     title: Text("Wind Speed"),
-                    trailing: Text(windSpeed != null ? windSpeed.toString() : "Loading"),
+                    trailing: Text(windSpeed != null ? windSpeed.toString() +" km/h" : "Loading"),
                   )
                 ]
               ),
